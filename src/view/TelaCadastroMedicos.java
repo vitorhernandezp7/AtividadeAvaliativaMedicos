@@ -84,7 +84,7 @@ public class TelaCadastroMedicos extends JFrame {
 		getContentPane().add(txtTelefone);
 		
 		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Cardiologista", "Cl\u00EDnico geral", "Dermatologista", "Endocrinologista", "Neurologista"}));
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Cardiologista", "Clinico geral", "Dermatologista", "Endocrinologista", "Neurologista"}));
 		comboBox.setBounds(30, 238, 197, 22);
 		getContentPane().add(comboBox);
 		
@@ -105,14 +105,16 @@ public class TelaCadastroMedicos extends JFrame {
 				String nome = txtNome.getText();
 				String cpf = txtCpf.getText();
 				String telefone = txtTelefone.getText();
+				String especialidade = comboBox.getSelectedItem().toString();
 				if(crm.equals("")||nome.equals("")||cpf.equals("")||telefone.equals("")) {
 					JOptionPane.showMessageDialog(null, "Voce deve preencher todos os campos", "Atençao", 2);
 				}
 				else {
 					MedicoController mcontrol = new MedicoController();
-					if(mcontrol.cadastrar(Integer.parseInt(crm), nome, cpf, Integer.parseInt(telefone))==1) {
+					if(mcontrol.cadastrar(Integer.parseInt(crm), nome, cpf, Integer.parseInt(telefone),especialidade)==1) {
 						JOptionPane.showMessageDialog(null, "Dados cadastrados com sucesso", "Atenção", 1);
 						limpar();
+						dispose();
 					}
 					else {
 						JOptionPane.showMessageDialog(null, "Erro ao cadastrar medicos");
@@ -132,7 +134,5 @@ public class TelaCadastroMedicos extends JFrame {
 		txtCpf.setText("");
 		txtTelefone.setText("");
 		
-		System.out.println("");
-		System.out.println("");
 	}
 }

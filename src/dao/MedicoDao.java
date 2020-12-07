@@ -14,7 +14,7 @@ public class MedicoDao {
 	public int create(Medicos m) {
 		Connection con = null;
 		PreparedStatement stmt = null;
-		String sqlInsert = "INSERT INTO medicos(crm, nome, cpf, telefone) VALUES (?,?,?,?)";
+		String sqlInsert = "INSERT INTO medicos(crm, nome, cpf, telefone,especialidade) VALUES (?,?,?,?,?)";
 		
 		con = ConnectionFactory.getConnection();
 		try {
@@ -23,6 +23,7 @@ public class MedicoDao {
 			stmt.setString(2, m.getNome());
 			stmt.setString(3,  m.getCpf());
 			stmt.setInt(4, m.getTelefone());
+			stmt.setString(5, m.getEspecialidade());
 			stmt.execute();
 			return 1;
 			

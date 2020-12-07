@@ -6,12 +6,14 @@ public class Medicos {
 	private String nome;
 	private String cpf;
 	private int telefone;
+	private String especialidade;
 
-	public Medicos(int crm, String nome, String cpf, int telefone) {
+	public Medicos(int crm, String nome, String cpf, int telefone,String especialidade) {
 		this.crm = crm;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;
+		this.especialidade = especialidade;
 	}
 	
 	public int getCrm() {
@@ -37,6 +39,12 @@ public class Medicos {
 	}
 	public void setTelefone(int telefone) {
 		this.telefone = telefone;
+	}
+	public String getEspecialidade() {
+		return especialidade;
+	}
+	public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
 	}
 	
 	
